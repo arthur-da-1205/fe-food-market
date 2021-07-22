@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button, Header, InputField, Space} from '../../components';
 
-const SignUp = () => {
+const SignUp = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Header title="Sign Up" subTitle="Register and Eat" onBack={() => {}} />
@@ -24,7 +24,10 @@ const SignUp = () => {
         <Space height={24} />
         <InputField label="Password" placeholder="Type your password" />
         <Space height={24} />
-        <Button textButton="Continue" />
+        <Button
+          textButton="Continue"
+          onPress={() => navigation.navigate('SignUpAddress')}
+        />
       </View>
     </View>
   );
