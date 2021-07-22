@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {Button, Header, InputField, Space} from '../../components';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Header title="Sign In" subTitle="Find your best ever meal" />
@@ -21,6 +21,7 @@ const SignIn = () => {
           textButton="Create New Account"
           buttonColor="#8D92A3"
           textColor="white"
+          onPress={() => navigation.navigate('SignUp')}
         />
       </View>
     </View>

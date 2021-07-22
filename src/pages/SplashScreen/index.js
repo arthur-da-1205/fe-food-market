@@ -1,4 +1,3 @@
-import {NavigationContainer} from '@react-navigation/native';
 import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
@@ -9,14 +8,11 @@ const SplashScreen = ({navigation}) => {
     setTimeout(() => {
       navigation.replace('SignIn');
     }, 3000);
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.container}>
       <Logo />
-      <Text
-        style={{fontSize: 32, color: '#020202', fontFamily: 'Poppins-Medium'}}>
-        Food Market
-      </Text>
+      <Text style={styles.text}>Food Market</Text>
     </View>
   );
 };
@@ -30,4 +26,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {fontSize: 32, color: '#020202', fontFamily: 'Poppins-Medium'},
 });
