@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button, Header, InputField, Select, Space} from '../../components';
 
-const SIgnUpAddress = () => {
+const SIgnUpAddress = ({navigation}) => {
   return (
     <View style={styles.page}>
       <Header
@@ -20,7 +20,10 @@ const SIgnUpAddress = () => {
         <Space height={24} />
         <Select />
         <Space height={32} />
-        <Button textButton="Sign Up Now" onPress={() => {}} />
+        <Button
+          textButton="Sign Up Now"
+          onPress={() => navigation.replace('SignUpSuccess')}
+        />
       </View>
     </View>
   );
