@@ -1,5 +1,5 @@
 import Button from './Button';
 import InputField from './InputField';
 import Space from './Space';
-
-export {Button, InputField, Space};
+import Select from './Select';
+export {Button, InputField, Select, Space};

@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Button, Header, InputField, Space} from '../../components';
+import {Button, Header, InputField, Select, Space} from '../../components';
 
 const SIgnUpAddress = () => {
   return (
@@ -18,7 +18,8 @@ const SIgnUpAddress = () => {
         <Space height={24} />
         <InputField label="House No." placeholder="Type your house number" />
         <Space height={24} />
-        <InputField label="City" placeholder="Select your city" />
+        <Select />
+        <Space height={32} />
         <Button textButton="Sign Up Now" onPress={() => {}} />
       </View>
     </View>
