@@ -1,7 +1,12 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {SignIn, SignUp, SignUpAddress, SplashScreen} from '../pages';
-import SignUpSuccess from '../pages/SIgnUpSuccess';
+import {
+  SignIn,
+  SignUp,
+  SignUpAddress,
+  SignUpSuccess,
+  SplashScreen,
+} from '../pages';
 
 const Stack = createStackNavigator();
 

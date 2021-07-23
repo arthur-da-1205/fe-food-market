@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Button, Header, InputField, Space} from '../../components';
+import {Button, Header, InputField, Space} from '../../../components';
 
 const SignUp = ({navigation}) => {
   return (

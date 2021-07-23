@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Button, Header, InputField, Space} from '../../components';
+import {Button, Header, InputField, Space} from '../../../components';
 
 const SignIn = ({navigation}) => {
   return (

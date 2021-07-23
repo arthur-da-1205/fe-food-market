@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {SuccessSignUpLogo} from '../../assets/Ilustration';
-import {Button, Space} from '../../components';
+import {SuccessSignUpLogo} from '../../../assets';
+import {Button, Space} from '../../../components';
 
 const SignUpSuccess = () => {
   return (
