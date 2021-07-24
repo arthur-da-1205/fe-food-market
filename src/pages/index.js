@@ -1,2 +1,2 @@
 export * from './AuthPages';
-// export * from './HomePages';
+export * from './HomePages';
