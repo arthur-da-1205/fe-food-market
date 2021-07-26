@@ -30,15 +30,7 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
   }
 
   return (
-    <View
-      style={{
-        backgroundColor: 'white',
-        flexDirection: 'row',
-        paddingTop: 15,
-        paddingBottom: 13,
-        paddingHorizontal: 50,
-        justifyContent: 'space-between',
-      }}>
+    <View style={styles.bottomTabContainer}>
       {state.routes.map((route, index) => {
         const {options} = descriptors[route.key];
         const label =
@@ -88,4 +80,13 @@ const BottomNavigator = ({state, descriptors, navigation}) => {
 
 export default BottomNavigator;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  bottomTabContainer: {
+    backgroundColor: 'white',
+    flexDirection: 'row',
+    paddingTop: 15,
+    paddingBottom: 13,
+    paddingHorizontal: 50,
+    justifyContent: 'space-between',
+  },
+});
