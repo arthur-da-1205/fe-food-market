@@ -1,18 +1,18 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Rating} from '..';
 
-import {FoodDummy, IconStarOff, IconStarOn} from '../../../assets';
-
-const FoodCard = ({image}) => {
+const FoodCard = ({image, onPress}) => {
   return (
-    <View style={styles.foodContainer}>
-      <Image source={FoodDummy} />
-      <View style={{padding: 12}}>
-        <Text style={styles.foodName}>Cherry Healthy</Text>
-        <Rating />
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.foodContainer}>
+        <Image source={image} style={styles.imageContainer} />
+        <View style={styles.textContainer}>
+          <Text style={styles.foodName}>Cherry Healthy</Text>
+          <Rating />
+        </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginRight: 24,
   },
+  imageContainer: {height: 140, width: 200},
+  textContainer: {padding: 12},
   foodName: {
     fontSize: 16,
     fontFamily: 'Poppins-Regular',

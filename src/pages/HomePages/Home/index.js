@@ -7,8 +7,9 @@ import {
   HomeTabSection,
 } from '../../../components/molecules';
 import {Space} from '../../../components';
+import {FoodDummy, FoodDummy2, FoodDummy3} from '../../../assets';
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <View style={styles.page}>
       <HomeHeader />
@@ -16,13 +17,34 @@ const Home = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <View style={styles.foodContainer}>
             <Space width={16} />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
+            <FoodCard
+              image={FoodDummy}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy2}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy2}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy2}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy3}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
+            <FoodCard
+              image={FoodDummy2}
+              onPress={() => navigation.navigate('FoodDetail')}
+            />
           </View>
         </ScrollView>
       </View>
