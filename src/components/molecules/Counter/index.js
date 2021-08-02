@@ -4,19 +4,11 @@ import {IconMin, IconPlus} from '../../../assets';
 
 const Counter = () => {
   return (
-    <View style={{flexDirection: 'row', alignItems: 'center'}}>
+    <View style={styles.container}>
       <TouchableOpacity>
         <IconMin />
       </TouchableOpacity>
-      <Text
-        style={{
-          fontSize: 16,
-          fontFamily: 'Poppins-Regular',
-          color: '#020202',
-          marginHorizontal: 25,
-        }}>
-        1
-      </Text>
+      <Text style={styles.qtyLabel}>1</Text>
       <TouchableOpacity>
         <IconPlus />
       </TouchableOpacity>
@@ -26,4 +18,12 @@ const Counter = () => {
 
 export default Counter;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {flexDirection: 'row', alignItems: 'center'},
+  qtyLabel: {
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+    color: '#020202',
+    marginHorizontal: 25,
+  },
+});
