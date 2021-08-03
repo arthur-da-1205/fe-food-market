@@ -10,7 +10,7 @@ import {
 import {FoodDummy, IconBackWhite} from '../../../assets';
 import {Button, Counter, Rating} from '../../../components';
 
-const FoodDetail = () => {
+const FoodDetail = ({navigation}) => {
   return (
     <View style={styles.pageContainer}>
       <ImageBackground source={FoodDummy} style={styles.imageBanner}>
@@ -43,7 +43,10 @@ const FoodDetail = () => {
             <Text style={styles.priceTotal}>Rp. xxx.xxx.xxx</Text>
           </View>
           <View style={styles.btnOrder}>
-            <Button textButton="Order Now" />
+            <Button
+              textButton="Order Now"
+              onPress={() => navigation.navigate('OrderSummary')}
+            />
           </View>
         </View>
       </View>

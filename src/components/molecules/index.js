@@ -6,6 +6,7 @@ import HomeTabSection from './HomeTabSection';
 import ListFood from './ListFood';
 import Rating from './Rating';
 import Counter from './Counter';
+import ItemsDetail from './ItemsDetail';
 
 export {
   BottomNavigator,
@@ -16,4 +17,5 @@ export {
   HomeTabSection,
   ListFood,
   Rating,
+  ItemsDetail,
 };

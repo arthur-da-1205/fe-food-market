@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {Rating} from '..';
 
-const ListFood = ({image, onPress}) => {
+const ListFood = ({image, onPress, items, rating}) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.pageContainer}>
@@ -11,7 +11,8 @@ const ListFood = ({image, onPress}) => {
           <Text style={styles.foodName}>Soup Ala Ala</Text>
           <Text style={styles.foodDesc}>Rp. 1.000.000</Text>
         </View>
-        <Rating />
+        {items && !rating && <Text>{items} items</Text>}
+        {rating && !items && <Rating />}
       </View>
     </TouchableOpacity>
   );
@@ -24,7 +25,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: 'white',
-    paddingHorizontal: 24,
     paddingVertical: 8,
   },
   imageContainer: {

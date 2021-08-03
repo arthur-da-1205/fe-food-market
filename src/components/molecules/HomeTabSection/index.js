@@ -27,32 +27,39 @@ const renderTabBar = props => (
 const NewTaste = () => {
   const navigation = useNavigation();
   return (
-    <View style={{paddingTop: 8}}>
+    <View style={{paddingTop: 8, paddingHorizontal: 24}}>
       <ListFood
+        rating={4}
         image={FoodDummy}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy3}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy3}
         onPress={() => navigation.navigate('FoodDetail')}
       />
@@ -63,32 +70,39 @@ const NewTaste = () => {
 const Popular = () => {
   const navigation = useNavigation();
   return (
-    <View style={{paddingTop: 8}}>
+    <View style={{paddingTop: 8, paddingHorizontal: 24}}>
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy3}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy3}
         onPress={() => navigation.navigate('FoodDetail')}
       />
       <ListFood
+        rating={4}
         image={FoodDummy2}
         onPress={() => navigation.navigate('FoodDetail')}
       />
