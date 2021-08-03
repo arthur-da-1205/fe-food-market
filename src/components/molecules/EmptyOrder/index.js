@@ -1,36 +1,33 @@
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
-import {SuccessOrderLogo} from '../../../assets';
-import {Button, Space} from '../../../components';
 
-const OrderSuccess = ({navigation}) => {
+import {EmptyOrderLogo} from '../../../assets';
+import {Button, Space} from '../../atoms';
+
+const EmptyOrder = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.pageContainer}>
-      <SuccessOrderLogo />
+      <EmptyOrderLogo />
       <Space height={32} />
-      <Text style={styles.title}>You've Made Order</Text>
+      <Text style={styles.title}>Ouch! Hungry</Text>
       <Space height={6} />
       <Text style={styles.subtitle}>
-        Just stay at home while we are preparing your best foods
+        Seems like you have not ordered any food yet
       </Text>
       <Space height={30} />
       <View style={styles.btnContainer}>
         <Button
-          textButton="Order Other Foods"
+          textButton="Find Foods"
           onPress={() => navigation.replace('MainApp')}
-        />
-        <Space height={12} />
-        <Button
-          textButton="View My Order"
-          buttonColor="#8D92A3"
-          onPress={() => navigation.navigate('MainApp', {screen: 'Order'})}
         />
       </View>
     </View>
   );
 };
 
-export default OrderSuccess;
+export default EmptyOrder;
 
 const styles = StyleSheet.create({
   pageContainer: {

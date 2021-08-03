@@ -7,6 +7,7 @@ import ListFood from './ListFood';
 import Rating from './Rating';
 import Counter from './Counter';
 import ItemsDetail from './ItemsDetail';
+import EmptyOrder from './EmptyOrder';
 
 export {
   BottomNavigator,
@@ -18,4 +19,5 @@ export {
   ListFood,
   Rating,
   ItemsDetail,
+  EmptyOrder,
 };
