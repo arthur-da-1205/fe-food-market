@@ -9,7 +9,7 @@ import {
   Space,
 } from '../../../components';
 
-const OrderSummary = () => {
+const OrderSummary = ({navigation}) => {
   return (
     <View>
       <Header
@@ -46,7 +46,10 @@ const OrderSummary = () => {
       </View>
       <Space height={24} />
       <View style={styles.btnCheckOut}>
-        <Button textButton="Checkout Now" />
+        <Button
+          textButton="Checkout Now"
+          onPress={() => navigation.navigate('OrderSuccess')}
+        />
       </View>
     </View>
   );
