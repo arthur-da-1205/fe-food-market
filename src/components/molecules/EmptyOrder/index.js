@@ -14,7 +14,7 @@ const EmptyOrder = () => {
       <Text style={styles.title}>Ouch! Hungry</Text>
       <Space height={6} />
       <Text style={styles.subtitle}>
-        Seems like you have not ordered any food yet
+        Seems like you have not ordered any food yet. Let's find some foods
       </Text>
       <Space height={30} />
       <View style={styles.btnContainer}>

@@ -8,6 +8,7 @@ import Rating from './Rating';
 import Counter from './Counter';
 import ItemsDetail from './ItemsDetail';
 import EmptyOrder from './EmptyOrder';
+import OrderTabSection from './OrderTabSection';
 
 export {
   BottomNavigator,
@@ -20,4 +21,5 @@ export {
   Rating,
   ItemsDetail,
   EmptyOrder,
+  OrderTabSection,
 };

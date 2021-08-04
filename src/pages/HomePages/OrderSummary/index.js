@@ -20,7 +20,13 @@ const OrderSummary = ({navigation}) => {
       <Space height={24} />
       <View style={styles.detailItemontainer}>
         <Text style={styles.textItemOrdered}>Item Ordered</Text>
-        <ListFood image={FoodDummy6} items={2} />
+        <ListFood
+          image={FoodDummy6}
+          items={3}
+          foodName="Soup Ala Ala"
+          price="1.000.000"
+          type="order-summary"
+        />
         <Space height={16} />
         <Text style={styles.textDetailTransaction}>Detail Transaction</Text>
         <Space height={8} />
