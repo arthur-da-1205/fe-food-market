@@ -10,7 +10,7 @@ const renderTabBar = props => (
   <TabBar
     {...props}
     indicatorStyle={styles.indicator}
-    style={{backgroundColor: 'white', elevation: 0, shadowOpacity: 0}}
+    style={styles.tabBarContainer}
     tabStyle={styles.tab}
     renderLabel={({route, focused, color}) => (
       <Text
@@ -27,13 +27,13 @@ const renderTabBar = props => (
 const InProgress = () => {
   const navigation = useNavigation();
   return (
-    <View style={{paddingTop: 8, paddingHorizontal: 24}}>
+    <View style={styles.tabContainer}>
       <ListFood
         foodName="Soup Ala Ala"
         items={3}
         price="1.000.000"
         image={FoodDummy}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -41,7 +41,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -49,7 +49,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -57,7 +57,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -65,7 +65,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy3}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -73,7 +73,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
       <ListFood
@@ -81,7 +81,7 @@ const InProgress = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy3}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="in-progress"
       />
     </View>
@@ -91,13 +91,13 @@ const InProgress = () => {
 const PastOrder = () => {
   const navigation = useNavigation();
   return (
-    <View style={{paddingTop: 8, paddingHorizontal: 24}}>
+    <View style={styles.tabContainer}>
       <ListFood
         foodName="Soup Ala Ala"
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -107,7 +107,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -117,7 +117,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy3}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -127,7 +127,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -137,7 +137,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -147,7 +147,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy3}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -157,7 +157,7 @@ const PastOrder = () => {
         items={3}
         price="1.000.000"
         image={FoodDummy2}
-        onPress={() => navigation.navigate('FoodDetail')}
+        onPress={() => navigation.navigate('OrderDetail')}
         type="past-orders"
         date="August 4th, 14:43"
         status="Canceled"
@@ -182,7 +182,7 @@ const OrderTabSetion = () => {
 
   return (
     <TabView
-      style={{backgroundColor: 'white'}}
+      style={styles.tabViewContainer}
       renderTabBar={renderTabBar}
       navigationState={{index, routes}}
       renderScene={renderScene}
@@ -202,4 +202,7 @@ const styles = StyleSheet.create({
     height: 3,
   },
   tab: {width: 'auto'},
+  tabBarContainer: {backgroundColor: 'white', elevation: 0, shadowOpacity: 0},
+  tabViewContainer: {backgroundColor: 'white'},
+  tabContainer: {paddingTop: 8, paddingHorizontal: 24},
 });
