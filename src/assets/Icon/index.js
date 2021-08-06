@@ -10,6 +10,7 @@ import IconStarOff from './ic-star-off';
 import IconStarOn from './ic-star-on';
 import IconPlus from './ic-btn-add';
 import IconMin from './ic-btn-min';
+import IconRight from './ic-arrow-right.svg';
 
 export {
   IconBack,
@@ -24,4 +25,5 @@ export {
   IconStarOn,
   IconPlus,
   IconMin,
+  IconRight,
 };

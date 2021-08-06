@@ -9,6 +9,8 @@ import Counter from './Counter';
 import ItemsDetail from './ItemsDetail';
 import EmptyOrder from './EmptyOrder';
 import OrderTabSection from './OrderTabSection';
+import ProfileTabSection from './ProfileTabSection';
+import ListMenu from './ListMenu';
 
 export {
   BottomNavigator,
@@ -22,4 +24,6 @@ export {
   ItemsDetail,
   EmptyOrder,
   OrderTabSection,
+  ProfileTabSection,
+  ListMenu,
 };
