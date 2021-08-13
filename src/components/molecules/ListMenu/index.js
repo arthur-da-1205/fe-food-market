@@ -1,13 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {IconRight} from '../../../assets';
 
 const ListMenu = ({label}) => {
   return (
-    <View style={styles.pageContainer}>
-      <Text style={styles.labelText}>{label}</Text>
-      <IconRight style={styles.iconArrow} />
-    </View>
+    <TouchableOpacity>
+      <View style={styles.pageContainer}>
+        <Text style={styles.labelText}>{label}</Text>
+        <IconRight style={styles.iconArrow} />
+      </View>
+    </TouchableOpacity>
   );
 };
 

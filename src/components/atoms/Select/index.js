@@ -8,8 +8,10 @@ const Select = () => {
       <Text style={styles.label}>City</Text>
       <View style={styles.placeholder}>
         <Picker style={styles.placeholder}>
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
+          <Picker.Item label="Bangkalan" value="bangkalam" />
+          <Picker.Item label="Surabaya" value="surabaya" />
+          <Picker.Item label="Bandung" value="bandung" />
+          <Picker.Item label="Jakarta" value="jakarta" />
         </Picker>
       </View>
     </View>
