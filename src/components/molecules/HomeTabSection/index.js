@@ -4,7 +4,7 @@ import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
 import {useNavigation} from '@react-navigation/native';
 
 import {FoodDummy, FoodDummy2, FoodDummy3} from '../../../assets';
-import ListFood from '../ListFood';
+import ListFood from '..';
 
 const renderTabBar = props => (
   <TabBar

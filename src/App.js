@@ -1,14 +1,17 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
 
-import {SignIn, SignUp, SplashScreen} from './pages';
 import Router from './routes';
+import store from './redux/store';
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </NavigationContainer>
   );
 };

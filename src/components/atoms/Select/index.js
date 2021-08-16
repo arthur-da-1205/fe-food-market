@@ -1,17 +1,57 @@
+// import React from 'react';
+// import {StyleSheet, Text, View} from 'react-native';
+// import {Picker} from '@react-native-picker/picker';
+
+// const Select = ({label, value, onSelectChange}) => {
+//   return (
+//     <View>
+//       <Text style={styles.label}>{label}</Text>
+//       <View style={styles.input}>
+//         <Picker
+//           style={{padding: 24}}
+//           selectedValue={value}
+//           onValueChange={itemValue => onSelectChange(itemValue)}>
+//           <Picker.Item label="Bandung" value="Bandung" />
+//           <Picker.Item label="Jakarta" value="Jakarta" />
+//           <Picker.Item label="Semarang" value="Semarang" />
+//           <Picker.Item label="Jogja" value="Jogja" />
+//           <Picker.Item label="Surabaya" value="Surabaya" />
+//         </Picker>
+//       </View>
+//     </View>
+//   );
+// };
+
+// export default Select;
+
+// const styles = StyleSheet.create({
+//   label: {fontSize: 16, fontFamily: 'Poppins-Regular', color: '#020202'},
+//   input: {
+//     borderWidth: 2,
+//     borderColor: '#020202',
+//     borderRadius: 8,
+//     paddingHorizontal: 2,
+//     paddingVertical: 0,
+//   },
+// });
+
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
+import {Picker} from '@react-native-community/picker';
 
-const Select = () => {
+const Select = ({label, value, onSelectChange}) => {
   return (
     <View>
-      <Text style={styles.label}>City</Text>
-      <View style={styles.placeholder}>
-        <Picker style={styles.placeholder}>
-          <Picker.Item label="Bangkalan" value="bangkalam" />
-          <Picker.Item label="Surabaya" value="surabaya" />
-          <Picker.Item label="Bandung" value="bandung" />
-          <Picker.Item label="Jakarta" value="jakarta" />
+      <Text style={styles.label}>{label}</Text>
+      <View style={styles.input}>
+        <Picker
+          selectedValue={value}
+          onValueChange={itemValue => onSelectChange(itemValue)}>
+          <Picker.Item label="Bandung" value="Bandung" />
+          <Picker.Item label="Jakarta" value="Jakarta" />
+          <Picker.Item label="Semarang" value="Semarang" />
+          <Picker.Item label="Jogja" value="Jogja" />
+          <Picker.Item label="Surabaya" value="Surabaya" />
         </Picker>
       </View>
     </View>
@@ -22,11 +62,11 @@ export default Select;
 
 const styles = StyleSheet.create({
   label: {fontSize: 16, fontFamily: 'Poppins-Regular', color: '#020202'},
-  placeholder: {
-    color: '#8D92A3',
+  input: {
     borderWidth: 2,
-    borderRadius: 8,
     borderColor: '#020202',
-    padding: 11,
+    borderRadius: 8,
+    paddingHorizontal: 2,
+    paddingVertical: 0,
   },
 });
