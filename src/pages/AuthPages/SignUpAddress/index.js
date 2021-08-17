@@ -2,10 +2,9 @@ import axios from 'axios';
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {showMessage, hideMessage} from 'react-native-flash-message';
 
 import {Button, Header, InputField, Select, Space} from '../../../components';
-import {useForm} from '../../../utils';
+import {toastMessage, useForm} from '../../../utils';
 
 const SIgnUpAddress = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -18,14 +17,6 @@ const SIgnUpAddress = ({navigation}) => {
   const dispatch = useDispatch();
 
   const registerReducer = useSelector(state => state.registerReducer);
-
-  const toastMessage = (message, type) => {
-    showMessage({
-      message,
-      type: type === 'success' ? 'success' : 'danger',
-      backgroundColor: type === 'success' ? '#1ABC9C' : '#D9435E',
-    });
-  };
 
   const onSubmit = () => {
     const data = {

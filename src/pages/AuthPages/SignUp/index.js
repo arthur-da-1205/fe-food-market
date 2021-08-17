@@ -1,6 +1,13 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {useDispatch} from 'react-redux';
+import ImagePicker from 'react-native-image-picker';
 
 import {Button, Header, InputField, Space} from '../../../components';
 import {useForm} from '../../../utils';
@@ -23,19 +30,30 @@ const SignUp = ({navigation}) => {
     navigation.navigate('SignUpAddress');
   };
 
+  const addPhoto = () => {
+    ImagePicker.launchImageLibrary({}, response => {
+      console.log('Response= ', response);
+
+      if (response.didCancel || response.error) {
+      }
+    });
+  };
+
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.page}>
         <Header title="Sign Up" subTitle="Register and Eat" onBack={() => {}} />
         <Space height={16} />
         <View style={styles.container}>
-          <View style={styles.photoContainer}>
-            <View style={styles.photoBorder}>
-              <View style={styles.photo}>
-                <Text style={styles.textPhoto}>Add Photo</Text>
+          <TouchableOpacity>
+            <View style={styles.photoContainer}>
+              <View style={styles.photoBorder}>
+                <View style={styles.photo}>
+                  <Text style={styles.textPhoto}>Add Photo</Text>
+                </View>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
           <InputField
             label="Full Name"
             placeholder="Type your full name"
