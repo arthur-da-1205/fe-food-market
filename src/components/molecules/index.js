@@ -11,6 +11,7 @@ import EmptyOrder from './EmptyOrder';
 import OrderTabSection from './OrderTabSection';
 import ProfileTabSection from './ProfileTabSection';
 import ListMenu from './ListMenu';
+import LoadingAnimation from './LoadingAnimation';
 
 export {
   BottomNavigator,
@@ -26,4 +27,5 @@ export {
   OrderTabSection,
   ProfileTabSection,
   ListMenu,
+  LoadingAnimation,
 };

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {showMessage, hideMessage} from 'react-native-flash-message';
+
 import {Button, Header, InputField, Select, Space} from '../../../components';
 import {useForm} from '../../../utils';
 
@@ -13,22 +15,37 @@ const SIgnUpAddress = ({navigation}) => {
     city: 'Surabaya',
   });
 
+  const dispatch = useDispatch();
+
   const registerReducer = useSelector(state => state.registerReducer);
+
+  const toastMessage = (message, type) => {
+    showMessage({
+      message,
+      type: type === 'success' ? 'success' : 'danger',
+      backgroundColor: type === 'success' ? '#1ABC9C' : '#D9435E',
+    });
+  };
 
   const onSubmit = () => {
     const data = {
       ...form,
       ...registerReducer,
     };
+    dispatch({type: 'SET_LOADING', value: true});
     console.log('form', data);
     axios
       .post('http://167.172.70.208:8082/api/register', data)
       .then(res => {
         console.log('Success: ', res.data);
+        dispatch({type: 'SET_LOADING', value: false});
+        toastMessage('Success Register', 'success');
         navigation.replace('SignUpSuccess');
       })
       .catch(err => {
-        console.log('Failed', err);
+        console.log('Failed', err.response.data.message);
+        dispatch({type: 'SET_LOADING', value: false});
+        toastMessage(err?.response?.data?.message);
       });
   };
 
