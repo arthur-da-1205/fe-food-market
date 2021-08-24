@@ -1,6 +1,9 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {StyleSheet, Text, useWindowDimensions, View} from 'react-native';
 import {SceneMap, TabBar, TabView} from 'react-native-tab-view';
+import {Button, Space} from '../../atoms';
 //import {useNavigation} from '@react-navigation/native';
 import ListMenu from '../ListMenu';
 
@@ -23,13 +26,22 @@ const renderTabBar = props => (
 );
 
 const Account = () => {
-  //const navigation = useNavigation();
+  const navigation = useNavigation();
+
+  const signOut = () => {
+    AsyncStorage.multiRemove(['userProfile', 'token']).then(() => {
+      navigation.reset({index: 0, routes: [{name: 'SignIn'}]});
+    });
+  };
+
   return (
     <View style={styles.tabContainer}>
       <ListMenu label="Edit Profil" />
       <ListMenu label="Home Address" />
       <ListMenu label="Security" />
       <ListMenu label="Payment" />
+      <Space height={30} />
+      <Button textButton="Sign Out" onPress={signOut} />
     </View>
   );
 };

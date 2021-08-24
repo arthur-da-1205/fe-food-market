@@ -1,11 +1,12 @@
 import axios from 'axios';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {useDispatch} from 'react-redux';
 
 import {Button, Header, InputField, Space} from '../../../components';
 import {signInAction} from '../../../redux/action/auth';
 import {useForm} from '../../../utils';
+import {getData} from '../../../utils/storage';
 
 const SignIn = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -14,6 +15,8 @@ const SignIn = ({navigation}) => {
   });
 
   const dispatch = useDispatch();
+
+  useEffect(() => {});
 
   const onSubmit = () => {
     dispatch(signInAction(form, navigation));
