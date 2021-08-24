@@ -1,15 +1,27 @@
-import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 import {ProfileDummy} from '../../../assets';
+import {getData} from '../../../utils/storage';
 
 const HomeHeader = () => {
+  const navigation = useNavigation();
+
+  const [photo, setPhoto] = useState(ProfileDummy);
+
+  useEffect(() => {
+    getData('userProfile').then(res => {
+      setPhoto({uri: res.profile_photo_url});
+    });
+  }, []);
+
   return (
     <View style={styles.appNameContainer}>
       <View>
         <Text style={styles.title}>Food Market</Text>
         <Text style={styles.subtitle}>Let's get some food!</Text>
       </View>
-      <Image source={ProfileDummy} style={styles.photo} />
+      <Image source={photo} style={styles.photo} />
     </View>
   );
 };

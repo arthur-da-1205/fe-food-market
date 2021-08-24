@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {useDispatch} from 'react-redux';
 
 import {Button, Header, InputField, Space} from '../../../components';
+import {signInAction} from '../../../redux/action/auth';
 import {useForm} from '../../../utils';
 
 const SignIn = ({navigation}) => {
@@ -11,16 +13,10 @@ const SignIn = ({navigation}) => {
     password: '',
   });
 
+  const dispatch = useDispatch();
+
   const onSubmit = () => {
-    console.log('form: ', form);
-    axios
-      .post('http://167.172.70.208:8082/api/login', form)
-      .then(res => {
-        console.log('success', res);
-      })
-      .catch(err => {
-        console.log('failed', err);
-      });
+    dispatch(signInAction(form, navigation));
   };
 
   return (

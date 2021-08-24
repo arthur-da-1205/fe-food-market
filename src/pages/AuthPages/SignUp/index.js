@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
+  Image,
   ScrollView,
   StyleSheet,
   Text,
@@ -7,16 +8,14 @@ import {
   View,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
-import ImagePicker from 'react-native-image-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
 
 import {Button, Header, InputField, Space} from '../../../components';
-import {useForm} from '../../../utils';
+import {toastMessage, useForm} from '../../../utils';
 
 const SignUp = ({navigation}) => {
   // const globalState = useSelector(state => state.globalReducer);
   // console.log('global: ', globalState);
-
-  const dispatch = useDispatch();
 
   const [form, setForm] = useForm({
     name: '',
@@ -24,6 +23,8 @@ const SignUp = ({navigation}) => {
     password: '',
   });
 
+  const [photo, setPhoto] = useState('');
+  const dispatch = useDispatch();
   const onSubmit = () => {
     console.log('form', form);
     dispatch({type: 'SET_REGISTER', value: form});
@@ -31,12 +32,31 @@ const SignUp = ({navigation}) => {
   };
 
   const addPhoto = () => {
-    ImagePicker.launchImageLibrary({}, response => {
-      console.log('Response= ', response);
+    launchImageLibrary(
+      {
+        quality: 0.5,
+      },
+      response => {
+        console.log('Response= ', response);
 
-      if (response.didCancel || response.error) {
-      }
-    });
+        if (response.didCancel || response.error) {
+          toastMessage('Anda belum memilih foto');
+        } else {
+          const source = {uri: response.assets[0].uri};
+          const dataImage = {
+            uri: response.assets[0].uri,
+            type: response.assets[0].type,
+            name: response.assets[0].fileName,
+          };
+          console.log('data source:', source);
+          console.log('data:', dataImage);
+          setPhoto(source);
+
+          dispatch({type: 'SET_PHOTO', value: dataImage});
+          dispatch({type: 'SET_UPLOAD_STATUS', value: true});
+        }
+      },
+    );
   };
 
   return (
@@ -45,15 +65,19 @@ const SignUp = ({navigation}) => {
         <Header title="Sign Up" subTitle="Register and Eat" onBack={() => {}} />
         <Space height={16} />
         <View style={styles.container}>
-          <TouchableOpacity>
-            <View style={styles.photoContainer}>
-              <View style={styles.photoBorder}>
-                <View style={styles.photo}>
-                  <Text style={styles.textPhoto}>Add Photo</Text>
-                </View>
+          <View style={styles.photo}>
+            <TouchableOpacity onPress={addPhoto}>
+              <View style={styles.borderPhoto}>
+                {photo ? (
+                  <Image source={photo} style={styles.photoContainer} />
+                ) : (
+                  <View style={styles.photoContainer}>
+                    <Text style={styles.addPhoto}>Add Photo</Text>
+                  </View>
+                )}
               </View>
-            </View>
-          </TouchableOpacity>
+            </TouchableOpacity>
+          </View>
           <InputField
             label="Full Name"
             placeholder="Type your full name"
@@ -90,28 +114,30 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     paddingHorizontal: 24,
     paddingVertical: 26,
+    marginTop: 24,
     flex: 1,
   },
   page: {flex: 1},
-  photoContainer: {alignItems: 'center', marginTop: 16, marginBottom: 24},
-  photoBorder: {
+  photo: {alignItems: 'center', marginTop: 26, marginBottom: 16},
+  borderPhoto: {
     borderWidth: 1,
     borderColor: '#8D92A3',
-    height: 110,
     width: 110,
+    height: 110,
     borderRadius: 110,
     borderStyle: 'dashed',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  photo: {
-    height: 90,
+  photoContainer: {
     width: 90,
+    height: 90,
     borderRadius: 90,
-    padding: 24,
     backgroundColor: '#F0F0F0',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  textPhoto: {
+  addPhoto: {
     fontSize: 14,
     fontFamily: 'Poppins-Light',
     color: '#8D92A3',

@@ -1,12 +1,13 @@
-import axios from 'axios';
 import React from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 
 import {Button, Header, InputField, Select, Space} from '../../../components';
-import {toastMessage, useForm} from '../../../utils';
+import {signUpAction} from '../../../redux/action/auth';
+import {setLoading} from '../../../redux/action/global';
+import {useForm} from '../../../utils';
 
-const SIgnUpAddress = ({navigation}) => {
+const SignUpAddress = ({navigation}) => {
   const [form, setForm] = useForm({
     phoneNumber: '',
     address: '',
@@ -16,28 +17,16 @@ const SIgnUpAddress = ({navigation}) => {
 
   const dispatch = useDispatch();
 
-  const registerReducer = useSelector(state => state.registerReducer);
-
+  const {registerReducer, photoReducer} = useSelector(state => state);
+  console.log('P= ', photoReducer);
   const onSubmit = () => {
     const data = {
       ...form,
       ...registerReducer,
     };
-    dispatch({type: 'SET_LOADING', value: true});
+    dispatch(setLoading(true));
     console.log('form', data);
-    axios
-      .post('http://167.172.70.208:8082/api/register', data)
-      .then(res => {
-        console.log('Success: ', res.data);
-        dispatch({type: 'SET_LOADING', value: false});
-        toastMessage('Success Register', 'success');
-        navigation.replace('SignUpSuccess');
-      })
-      .catch(err => {
-        console.log('Failed', err.response.data.message);
-        dispatch({type: 'SET_LOADING', value: false});
-        toastMessage(err?.response?.data?.message);
-      });
+    dispatch(signUpAction(data, photoReducer, navigation));
   };
 
   return (
@@ -84,7 +73,7 @@ const SIgnUpAddress = ({navigation}) => {
   );
 };
 
-export default SIgnUpAddress;
+export default SignUpAddress;
 
 const styles = StyleSheet.create({
   container: {
